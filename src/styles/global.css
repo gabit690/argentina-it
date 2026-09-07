@@ -1,0 +1,37 @@
+:root {
+  --light-blue: #74acdf;
+  --background: #ffffff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("/fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+  background-color: var(--background);
+}
+
+.container {
+  padding: 20px 10px;
+}
+
+.border-light {
+  border: 1px solid black;
+}
+
+.flex-row-between-center {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
