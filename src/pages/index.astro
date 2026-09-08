@@ -1,5 +1,11 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
+import CompanyCatalog from "../islands/CompanyCatalog/CompanyCatalog";
+import {getCompanies} from "../utils/parseCsv";
+
+const companies = getCompanies();
 ---
 
-<RootLayout></RootLayout>
+<RootLayout>
+    <CompanyCatalog client:load data={companies} />
+</RootLayout>

@@ -1,0 +1,51 @@
+#table-container {
+  display: none;
+  table-layout: fixed;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: var(--orange-normal);
+  height: 40px;
+  text-transform: uppercase;
+}
+
+table td {
+  padding: 10px;
+  background-color: var(--orange-light);
+}
+
+table td:first-child {
+  font-weight: bold;
+}
+
+.cell-scroll {
+  height: 80px;
+  overflow-y: auto;
+}
+
+.cell-content {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.contact-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  #table-container {
+    display: table;
+  }
+}

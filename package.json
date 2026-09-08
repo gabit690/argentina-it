@@ -13,9 +13,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.1"
+    "@astrojs/preact": "^6.0.5",
+    "astro": "^7.3.1",
+    "csv-parse": "^7.0.2",
+    "preact": "^10.29.8"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1"
   }
 }
