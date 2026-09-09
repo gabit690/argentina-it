@@ -9,10 +9,12 @@ export interface Company {
 
 export async function getCompanies(): Promise<ReadonlyArray<Company>> {
   const entries = await getCollection("companies");
-  return entries.map((entry) => ({
-    name: entry.data.nombre,
-    services: entry.data.servicios,
-    web: entry.data.web,
-    linkedin: entry.data.linkedin,
-  }));
+  return entries
+    .map((entry) => ({
+      name: entry.data.nombre,
+      services: entry.data.servicios,
+      web: entry.data.web,
+      linkedin: entry.data.linkedin,
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name, "es"));
 }

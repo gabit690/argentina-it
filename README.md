@@ -1,6 +1,6 @@
 # Argentina IT
 
-Enlaces de empresas del rubro IT en Argentina.
+Información de contacto de empresas del rubro IT en Argentina.
 
 ## Stack
 

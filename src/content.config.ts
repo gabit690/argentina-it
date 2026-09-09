@@ -21,7 +21,7 @@ const companies = defineCollection({
       });
 
       return records.map((record, index) => ({
-        id: String(index),
+        id: `company-${index}`,
         ...record,
       }));
     },
