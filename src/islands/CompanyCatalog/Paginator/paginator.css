@@ -3,13 +3,19 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 #page-selector-container span {
-  min-width: 35px;
+  width: 38px;
   display: inline-block;
   text-align: center;
   cursor: pointer;
+}
+
+#page-selector-container .page-button {
+  outline: 1px solid black;
 }
 
 #page-selector-container .movement-button {

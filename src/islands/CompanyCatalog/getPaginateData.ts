@@ -1,4 +1,4 @@
-import type { Company } from "../../utils/parseCsv";
+import type { Company } from "../../utils/getCompanies";
 
 export function getPaginateData(
   data: readonly Company[],

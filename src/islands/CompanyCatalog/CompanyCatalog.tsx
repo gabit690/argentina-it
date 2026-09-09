@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
-import type { Company } from "../../utils/parseCsv";
+import type { Company } from "../../utils/getCompanies";
 import type { Pagination } from "../interfaces/pagination";
 import Paginator from "./Paginator/Paginator";
 import CardsView from "./CardsView/CardsView";

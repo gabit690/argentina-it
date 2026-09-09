@@ -1,4 +1,4 @@
-import type { Company } from "../../../utils/parseCsv";
+import type { Company } from "../../../utils/getCompanies";
 import CompanyContact from "../CompanyContact/CompanyContact";
 import "./table-view.css";
 

@@ -33,13 +33,13 @@ export default function Paginator({
         {pagesNumbers.map((page) => (
           <span
             onClick={() => onChangePage(page)}
-            class={
+            class={`page-button ${
               page == currentPage
                 ? "page-selected"
                 : page == 0
                   ? "disabled-page"
                   : ""
-            }
+            }`}
           >
             {page !== 0 ? page : "..."}
           </span>
