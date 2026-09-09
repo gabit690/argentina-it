@@ -1,0 +1,9 @@
+.icons-container a {
+  display: flex;
+}
+
+a .social-icon {
+  width: 24px;
+  height: 24px;
+  fill: #dda100;
+}

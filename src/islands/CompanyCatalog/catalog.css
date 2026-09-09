@@ -1,0 +1,11 @@
+#catalog-container {
+  scroll-margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#catalog-container > p {
+  text-align: right;
+  font-weight: bold;
+}

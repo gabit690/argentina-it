@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Analytics from "@vercel/analytics/astro";
 import "../styles/global.css";
 ---
 
@@ -9,6 +10,8 @@ import "../styles/global.css";
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Argentina IT</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<Analytics />
 	</head>
 	<body>
 		<div id="root">
@@ -22,6 +25,11 @@ import "../styles/global.css";
 </html>
 
 <style>
+
+	html {
+		min-width: 320px;
+	}
+
 	#root {
 		display: flex;
 		flex-direction: column;
@@ -31,5 +39,11 @@ import "../styles/global.css";
 	main {
 		padding: 10px;
 		flex: 1;
+	}
+
+	@media (min-width: 800px) {
+		main {
+			padding: 10px 40px;
+		}
 	}
 </style>
