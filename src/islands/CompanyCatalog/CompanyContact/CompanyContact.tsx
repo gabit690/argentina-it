@@ -1,8 +1,8 @@
 import "./company-contact.css";
 
 interface CompanyContactProps {
-  web: string | null;
-  linkedin: string | null;
+  web?: string;
+  linkedin?: string;
   iconContainerClass: string;
 }
 
