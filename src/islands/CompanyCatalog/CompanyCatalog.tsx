@@ -59,6 +59,7 @@ export default function CompanyCatalog({ data }: CompanyCatalogProps) {
 
   return (
     <div id="catalog-container">
+      <p>{`Información disponible de ${data.length} empresas`}</p>
       <TableView data={paginateData} />
       <CardsView data={paginateData} />
       <Paginator

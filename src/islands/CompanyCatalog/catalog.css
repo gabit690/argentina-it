@@ -4,3 +4,8 @@
   flex-direction: column;
   gap: 20px;
 }
+
+#catalog-container > p {
+  text-align: right;
+  font-weight: bold;
+}
