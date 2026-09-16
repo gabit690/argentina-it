@@ -26,28 +26,28 @@ export default function Paginator({
   return (
     <div id="paginator-container">
       <div id="page-selector-container">
-        <span
+        <button
           onClick={() => onChangePage(currentPage - 1)}
-          class={`movement-button ${currentPage == 1 ? "disabled-button" : ""}`}
-        >{`<`}</span>
+          class={`movement-button ${currentPage === 1 ? "disabled-button" : ""}`}
+        >{`<`}</button>
         {pagesNumbers.map((page) => (
-          <span
+          <button
             onClick={() => onChangePage(page)}
             class={`page-button ${
-              page == currentPage
+              page === currentPage
                 ? "page-selected"
-                : page == 0
+                : page === 0
                   ? "disabled-page"
                   : ""
             }`}
           >
             {page !== 0 ? page : "..."}
-          </span>
+          </button>
         ))}
-        <span
+        <button
           onClick={() => onChangePage(currentPage + 1)}
-          class={`movement-button ${currentPage == TOTAL_PAGES ? "disabled-button" : ""}`}
-        >{`>`}</span>
+          class={`movement-button ${currentPage === TOTAL_PAGES ? "disabled-button" : ""}`}
+        >{`>`}</button>
       </div>
       <div id="show-per-page-container">
         <p>Mostrar: </p>
