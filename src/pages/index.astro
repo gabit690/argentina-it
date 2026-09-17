@@ -1,12 +1,11 @@
 ---
 import RootLayout from "../layouts/RootLayout.astro";
 import CompanyCatalog from "../islands/CompanyCatalog/CompanyCatalog";
-import {getCompanies} from "../utils/getCompanies";
+import { getCompanies } from "../utils/getCompanies";
 
 const companies = await getCompanies();
-
 ---
 
 <RootLayout>
-    <CompanyCatalog client:load data={companies} />
+  <CompanyCatalog client:load data={companies} />
 </RootLayout>

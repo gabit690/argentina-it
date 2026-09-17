@@ -6,44 +6,43 @@ import "../styles/global.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Argentina IT</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<Analytics />
-	</head>
-	<body>
-		<div id="root">
-            <Header />
-			<main>
-                <slot />
-			</main>
-            <Footer />
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Argentina IT</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <Analytics />
+  </head>
+  <body>
+    <div id="root">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
 </html>
 
 <style>
+  html {
+    min-width: 320px;
+  }
 
-	html {
-		min-width: 320px;
-	}
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-	#root {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
+  main {
+    padding: 10px;
+    flex: 1;
+  }
 
-	main {
-		padding: 10px;
-		flex: 1;
-	}
-
-	@media (min-width: 800px) {
-		main {
-			padding: 10px 40px;
-		}
-	}
+  @media (min-width: 800px) {
+    main {
+      padding: 10px 40px;
+    }
+  }
 </style>
