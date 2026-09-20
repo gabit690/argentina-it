@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   border: 1px solid black;
+  border-radius: var(--border-radius);
   padding: 10px;
 }
 
@@ -14,12 +15,12 @@
   cursor: pointer;
 }
 
-#page-selector-container .page-button {
-  outline: 1px solid black;
-}
-
 #page-selector-container .movement-button {
+  text-transform: capitalize;
+  font-weight: bold;
   border: 1px solid black;
+  border-radius: var(--border-radius);
+  padding: 5px 10px;
   background-color: var(--light-blue);
 }
 
@@ -28,6 +29,11 @@
   color: grey;
   background-color: #cee5ff;
   cursor: not-allowed;
+}
+
+.selector-button {
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
 }
 
 #page-selector-container .disabled-page {

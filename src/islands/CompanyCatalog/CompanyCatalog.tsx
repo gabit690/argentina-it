@@ -1,11 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "preact/hooks";
-import type { Company } from "../../utils/getCompanies";
-import type { Pagination } from "../interfaces/pagination";
+
 import Paginator from "./Paginator/Paginator";
 import CardsView from "./CardsView/CardsView";
-import { getPaginateData } from "./getPaginateData";
-import "./catalog.css";
 import TableView from "./TableView/TableView";
+
+import { getPaginateData } from "./getPaginateData";
+
+import type { Company } from "../../utils/getCompanies";
+import type { Pagination } from "../interfaces/pagination";
+
+import "./catalog.css";
 
 interface CompanyCatalogProps {
   data: readonly Company[];
