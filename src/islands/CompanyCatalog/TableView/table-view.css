@@ -12,7 +12,7 @@ td {
 }
 
 table th {
-  background-color: var(--orange-normal);
+  background-color: var(--orange-intense);
   height: 40px;
   text-transform: uppercase;
 }

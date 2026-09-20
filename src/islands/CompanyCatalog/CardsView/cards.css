@@ -7,7 +7,7 @@
 }
 
 .card .card-header {
-  background-color: var(--orange-normal);
+  background-color: var(--orange-intense);
   padding: 10px;
   text-align: center;
   font-weight: bold;
@@ -19,7 +19,7 @@
 }
 
 .card .card-footer {
-  background-color: #ffdea6;
+  background-color: var(--orange-normal);
   padding: 10px;
 }
 

@@ -5,5 +5,5 @@
 a .social-icon {
   width: 24px;
   height: 24px;
-  fill: #dda100;
+  fill: var(--orange-dark);
 }

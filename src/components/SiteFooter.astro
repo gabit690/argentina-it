@@ -1,10 +1,14 @@
 ---
+import AuthorAvatar from "./AuthorAvatar.astro";
 ---
 
 <footer class="border-light">
   <div class="container flex-row-between-center">
-    <p id="copyright">desarrollado por gabit team - 2026</p>
-    <em>version 0.1.0</em>
+    <div id="copyright-info">
+      <span>desarrollado por</span>
+      <AuthorAvatar />
+    </div>
+    <em>Versión 0.2.0</em>
   </div>
 </footer>
 
@@ -14,7 +18,13 @@
     background-color: var(--light-blue);
   }
 
-  #copyright {
+  #copyright-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  span {
     text-transform: uppercase;
     font-weight: bold;
   }
