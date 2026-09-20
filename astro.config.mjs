@@ -3,7 +3,10 @@ import { defineConfig } from "astro/config";
 
 import preact from "@astrojs/preact";
 
+const site = process.env.PUBLIC_SITE_URL || "https://argentina-it.vercel.app";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [preact()],
+  site,
 });

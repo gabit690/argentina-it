@@ -1,41 +1,57 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import Analytics from "@vercel/analytics/astro";
+
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: "website" | "other";
+  image?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = "Argentina IT",
+  description = "Recopilación de empresas IT en Argentina. Algunas suelen tener búsquedas laborales activas.",
+  type = "website",
+  image = "https://argentina-it.vercel.app/images/og-image.webp",
+  noIndex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Argentina IT</title>
-    <link rel="canonical" href="https://argentina-it.vercel.app/" />
+    <title>{title}</title>
+    {noIndex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <link rel="canonical" href={canonicalUrl} />
+    )}
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta
-      name="description"
-      content="Recopilación de empresas IT en Argentina. Algunas de  suelen tener búsqedas laborales activas."
-    />
-    <meta property="og:title" content="Empresas IT de Argentina" />
-    <meta
-      property="og:description"
-      content="Recopilación de empresas IT en Argentina. Algunas de  suelen tener búsqedas laborales activas."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://argentina-it.vercel.app/" />
-    <meta
-      property="og:image"
-      content="https://argentina-it.vercel.app/og-image.webp"
-    />
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={image} />
+
     <Analytics />
   </head>
   <body>
     <div id="root">
-      <Header />
+      <SiteHeader />
       <main>
         <slot />
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   </body>
 </html>
@@ -52,13 +68,16 @@ import "../styles/global.css";
   }
 
   main {
-    padding: 10px;
+    padding: 20px;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   @media (min-width: 800px) {
     main {
-      padding: 10px 40px;
+      padding: 40px;
     }
   }
 </style>

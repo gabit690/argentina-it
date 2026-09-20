@@ -18,7 +18,7 @@
   font-weight: bold;
   border: 1px solid black;
   border-radius: var(--border-radius);
-  padding: 5px 10px;
+  padding: var(--padding-button);
   background-color: var(--light-blue);
   cursor: pointer;
 }
@@ -31,7 +31,7 @@
 }
 
 .selector-button {
-  padding: 5px 10px;
+  padding: var(--padding-button);
   border-radius: var(--border-radius);
   cursor: pointer;
 }

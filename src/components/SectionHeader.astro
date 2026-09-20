@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  dataLength: number;
+}
+
+const { title, dataLength } = Astro.props;
+---
+
+<header>
+  <h1>{title}</h1>
+  <p>{`${dataLength} registros disponibles`}</p>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    line-height: 1;
+  }
+</style>

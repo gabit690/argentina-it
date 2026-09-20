@@ -2,10 +2,12 @@
 import RootLayout from "../layouts/RootLayout.astro";
 import CompanyCatalog from "../islands/CompanyCatalog/CompanyCatalog";
 import { getCompanies } from "../utils/getCompanies";
+import SectionHeader from "../components/SectionHeader.astro";
 
 const companies = await getCompanies();
 ---
 
 <RootLayout>
+  <SectionHeader title="empresas" dataLength={companies.length} />
   <CompanyCatalog client:load data={companies} />
 </RootLayout>
