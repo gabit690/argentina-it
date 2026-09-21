@@ -5,7 +5,8 @@ import preact from "@astrojs/preact";
 
 import sitemap from "@astrojs/sitemap";
 
-const site = process.env.PUBLIC_SITE_URL || "https://argentina-it.vercel.app";
+const site =
+  import.meta.env.PUBLIC_SITE_URL || "https://argentina-it.vercel.app";
 
 // https://astro.build/config
 export default defineConfig({
