@@ -3,10 +3,10 @@
 
 <header class="border-light">
   <div class="container flex-row-between-center">
-    <div>
+    <a id="logo" href="/">
       <span id="site-name">Argentina IT</span>
       <p id="site-description">Colección pública de enlaces útiles.</p>
-    </div>
+    </a>
     <a
       href="https://github.com/gabit690/argentina-it"
       target="_blank"
@@ -32,11 +32,19 @@
     top: 0;
   }
 
+  #logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
   #site-name {
     font-size: 2rem;
     height: fit-content;
     font-weight: bold;
     text-transform: uppercase;
+    line-height: 1;
+    color: black;
   }
 
   #site-description {

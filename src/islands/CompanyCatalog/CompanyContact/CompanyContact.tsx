@@ -35,8 +35,8 @@ export default function CompanyContact({
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Linkedin de la compañía"
-          title="Linkedin de la compañía"
+          aria-label="LinkedIn de la empresa"
+          title="LinkedIn de la empresa"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
