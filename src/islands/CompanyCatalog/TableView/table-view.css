@@ -26,17 +26,6 @@ table td:first-child {
   font-weight: bold;
 }
 
-.cell-scroll {
-  height: 80px;
-  overflow-y: auto;
-}
-
-.cell-content {
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-}
-
 .contact-icons {
   display: flex;
   flex-direction: row;

@@ -57,7 +57,7 @@ export default function CompanyCatalog({ data }: CompanyCatalogProps) {
     }
     document.getElementById("catalog-container")?.scrollIntoView({
       behavior: "smooth",
-      block: "start",
+      block: "end",
     });
   }, [pagination.currentPage, pagination.perPage]);
 

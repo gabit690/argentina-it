@@ -1,8 +1,10 @@
 #catalog-container {
-  scroll-margin-top: 155px;
+  scroll-margin-top: 200px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
+  justify-content: space-between;
 }
 
 #catalog-container > p {

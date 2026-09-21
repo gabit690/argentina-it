@@ -26,9 +26,7 @@ export default function TableView({ data }: TableViewProps) {
           <tr key={name}>
             <td>{name}</td>
             <td>
-              <div className="cell-scroll">
-                <div className="cell-content">{specialties}</div>
-              </div>
+              <div>{specialties}</div>
             </td>
             <td>
               <CompanyContact
