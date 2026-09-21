@@ -1,9 +1,13 @@
 #cards-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 #cards-container .card {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 1px 1px 4px 0px var(--orange-dark);
 }
 
 .card .card-header {

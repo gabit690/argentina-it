@@ -31,6 +31,7 @@ export default function Paginator({
           onChange={(ev) => {
             const select = ev.currentTarget as HTMLSelectElement;
             onChangePage(Number(select.value));
+            ev.currentTarget.blur();
           }}
           class="selector-button"
         >
@@ -58,6 +59,7 @@ export default function Paginator({
           onChange={(ev) => {
             const select = ev.currentTarget as HTMLSelectElement;
             onChangePerPage(Number(select.value));
+            ev.currentTarget.blur();
           }}
           class="selector-button"
         >
@@ -65,7 +67,7 @@ export default function Paginator({
             <option
               key={index}
               value={10 * (index + 1)}
-              selected={index + 1 === currentPage}
+              selected={10 * (index + 1) === perPage}
             >
               {10 * (index + 1)}
             </option>

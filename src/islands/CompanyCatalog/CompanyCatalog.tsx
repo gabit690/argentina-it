@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "preact/hooks";
+import { useCallback, useLayoutEffect, useRef, useState } from "preact/hooks";
 
 import Paginator from "./Paginator/Paginator";
 import CardsView from "./CardsView/CardsView";
@@ -50,14 +50,23 @@ export default function CompanyCatalog({ data }: CompanyCatalogProps) {
     pagination.perPage,
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
-    document.getElementById("catalog-container")?.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
+
+    const body = document.body;
+    const catalog = document.getElementById("catalog-container");
+
+    if (!catalog) return;
+
+    const catalogHeight = catalog.getBoundingClientRect().height;
+    const viewportHeight = window.innerHeight;
+
+    body.scrollIntoView({
+      behavior: "instant",
+      block: catalogHeight >= viewportHeight ? "start" : "end",
     });
   }, [pagination.currentPage, pagination.perPage]);
 
