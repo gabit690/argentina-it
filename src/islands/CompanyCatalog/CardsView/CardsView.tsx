@@ -8,10 +8,10 @@ interface CardsViewProps {
 export default function CardsView({ data }: CardsViewProps) {
   return (
     <div id="cards-container">
-      {data.map(({ name, services, web, linkedin }) => (
+      {data.map(({ name, specialties, web, linkedin }) => (
         <div class="card" key={name}>
           <div class="card-header">{name}</div>
-          <div class="card-body">{services}</div>
+          <div class="card-body">{specialties}</div>
           <div class="card-footer">
             <CompanyContact
               web={web}
