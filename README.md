@@ -2,12 +2,20 @@
 
 Información de contacto de empresas del rubro IT en Argentina.
 
+## Demo
+
+https://argentina-it.vercel.app
+
 ## Stack
 
 - Astro
 - TypeScript
 - CSS3
 - Preact
+- Eslint
+- Husky
+- Prettier
+- Vitest
 
 ## Datos
 
