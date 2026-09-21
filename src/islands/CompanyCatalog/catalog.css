@@ -1,8 +1,9 @@
 #catalog-container {
-  scroll-margin-top: 100px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
+  justify-content: space-between;
 }
 
 #catalog-container > p {

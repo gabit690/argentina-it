@@ -1,11 +1,15 @@
-import { useCallback, useEffect, useRef, useState } from "preact/hooks";
-import type { Company } from "../../utils/getCompanies";
-import type { Pagination } from "../interfaces/pagination";
+import { useCallback, useLayoutEffect, useRef, useState } from "preact/hooks";
+
 import Paginator from "./Paginator/Paginator";
 import CardsView from "./CardsView/CardsView";
-import { getPaginateData } from "./getPaginateData";
-import "./catalog.css";
 import TableView from "./TableView/TableView";
+
+import { getPaginateData } from "./getPaginateData";
+
+import type { Company } from "../../utils/getCompanies";
+import type { Pagination } from "../interfaces/pagination";
+
+import "./catalog.css";
 
 interface CompanyCatalogProps {
   data: readonly Company[];
@@ -46,20 +50,28 @@ export default function CompanyCatalog({ data }: CompanyCatalogProps) {
     pagination.perPage,
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
-    document.getElementById("catalog-container")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+
+    const body = document.body;
+    const catalog = document.getElementById("catalog-container");
+
+    if (!catalog) return;
+
+    const catalogHeight = catalog.getBoundingClientRect().height;
+    const viewportHeight = window.innerHeight;
+
+    body.scrollIntoView({
+      behavior: "instant",
+      block: catalogHeight >= viewportHeight ? "start" : "end",
     });
   }, [pagination.currentPage, pagination.perPage]);
 
   return (
     <div id="catalog-container">
-      <p>{`Información disponible de ${data.length} empresas`}</p>
       <TableView data={paginateData} />
       <CardsView data={paginateData} />
       <Paginator

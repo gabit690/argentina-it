@@ -2,12 +2,13 @@ import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { file } from "astro/loaders";
 import { parse } from "csv-parse/sync";
+import { capitalizeFirst } from "./utils/capitalizeFirst";
 
 const companySchema = z.object({
   nombre: z.string(),
   web: z.string().optional(),
   linkedin: z.string().optional(),
-  servicios: z.string(),
+  especialidades: z.string(),
 });
 
 type CompanyDataCsv = z.infer<typeof companySchema>;
@@ -23,6 +24,8 @@ const companies = defineCollection({
       return records.map((record, index) => ({
         id: `company-${index}`,
         ...record,
+        nombre: record.nombre.toUpperCase(),
+        especialidades: capitalizeFirst(record.especialidades),
       }));
     },
   }),

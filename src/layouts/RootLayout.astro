@@ -1,49 +1,97 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import Analytics from "@vercel/analytics/astro";
+
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: "website" | "other";
+  image?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = "Argentina IT | Empresas",
+  description = "Recopilación de empresas IT en Argentina. Algunas suelen tener búsquedas laborales activas.",
+  type = "website",
+  image = "https://argentina-it.vercel.app/images/og-image.webp",
+  noIndex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Argentina IT</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<Analytics />
-	</head>
-	<body>
-		<div id="root">
-            <Header />
-			<main>
-                <slot />
-			</main>
-            <Footer />
-		</div>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="description" content={description} />
+    {noIndex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <link rel="canonical" href={canonicalUrl} />
+    )}
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="preload"
+      href="/fonts/hanken-grotesk-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <Analytics />
+  </head>
+  <body>
+    <div id="root">
+      <SiteHeader />
+      <main>
+        <slot />
+      </main>
+      <SiteFooter />
+    </div>
+  </body>
 </html>
 
 <style>
+  html {
+    min-width: 320px;
+  }
 
-	html {
-		min-width: 320px;
-	}
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-	#root {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
+  main {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-	main {
-		padding: 10px;
-		flex: 1;
-	}
-
-	@media (min-width: 800px) {
-		main {
-			padding: 10px 40px;
-		}
-	}
+  @media (min-width: 800px) {
+    main {
+      padding: 40px;
+    }
+  }
 </style>

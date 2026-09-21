@@ -1,13 +1,17 @@
 #cards-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 #cards-container .card {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 1px 1px 4px 0px var(--orange-dark);
 }
 
 .card .card-header {
-  background-color: var(--orange-normal);
+  background-color: var(--orange-intense);
   padding: 10px;
   text-align: center;
   font-weight: bold;
@@ -19,7 +23,7 @@
 }
 
 .card .card-footer {
-  background-color: #ffdea6;
+  background-color: var(--orange-normal);
   padding: 10px;
 }
 

@@ -1,6 +1,5 @@
-import { useMemo } from "preact/hooks";
 import type { Pagination } from "../../interfaces/pagination";
-import { getPagesNumbers } from "./pagination";
+
 import "./paginator.css";
 
 interface PaginatorProps extends Pagination {
@@ -18,48 +17,58 @@ export default function Paginator({
 }: PaginatorProps) {
   const TOTAL_PAGES = Math.ceil(dataLength / perPage);
 
-  const pagesNumbers = useMemo(
-    () => getPagesNumbers(TOTAL_PAGES, currentPage),
-    [dataLength, perPage, currentPage],
-  );
-
   return (
     <div id="paginator-container">
       <div id="page-selector-container">
-        <span
+        <button
           onClick={() => onChangePage(currentPage - 1)}
-          class={`movement-button ${currentPage == 1 ? "disabled-button" : ""}`}
-        >{`<`}</span>
-        {pagesNumbers.map((page) => (
-          <span
-            onClick={() => onChangePage(page)}
-            class={`page-button ${
-              page == currentPage
-                ? "page-selected"
-                : page == 0
-                  ? "disabled-page"
-                  : ""
-            }`}
-          >
-            {page !== 0 ? page : "..."}
-          </span>
-        ))}
-        <span
+          class={`movement-button ${currentPage === 1 ? "disabled-button" : ""}`}
+        >
+          {`< anterior`}
+        </button>
+
+        <select
+          onChange={(ev) => {
+            const select = ev.currentTarget as HTMLSelectElement;
+            onChangePage(Number(select.value));
+            ev.currentTarget.blur();
+          }}
+          class="selector-button"
+        >
+          {Array.from({ length: TOTAL_PAGES }, (_, index) => (
+            <option
+              key={index}
+              value={index + 1}
+              selected={index + 1 === currentPage}
+            >
+              {index + 1}
+            </option>
+          ))}
+        </select>
+
+        <button
           onClick={() => onChangePage(currentPage + 1)}
-          class={`movement-button ${currentPage == TOTAL_PAGES ? "disabled-button" : ""}`}
-        >{`>`}</span>
+          class={`movement-button ${currentPage === TOTAL_PAGES ? "disabled-button" : ""}`}
+        >
+          {`siguiente >`}
+        </button>
       </div>
       <div id="show-per-page-container">
         <p>Mostrar: </p>
         <select
-          id="perPage"
           onChange={(ev) => {
             const select = ev.currentTarget as HTMLSelectElement;
             onChangePerPage(Number(select.value));
+            ev.currentTarget.blur();
           }}
+          class="selector-button"
         >
-          {Array.from({ length: 5 }, (_, index) => (
-            <option key={index} value={10 * (index + 1)}>
+          {Array.from({ length: 3 }, (_, index) => (
+            <option
+              key={index}
+              value={10 * (index + 1)}
+              selected={10 * (index + 1) === perPage}
+            >
               {10 * (index + 1)}
             </option>
           ))}

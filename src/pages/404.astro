@@ -1,0 +1,43 @@
+---
+import RootLayout from "../layouts/RootLayout.astro";
+---
+
+<RootLayout title="Página no encontrada" noIndex>
+  <div id="not-found-container">
+    <img src="/images/404.webp" alt="Imagén de Gaturro vandalizado" />
+    <p>La página que buscás no existe.</p>
+    <a href="/">ir al inicio</a>
+  </div>
+</RootLayout>
+
+<style>
+  img {
+    max-width: 300px;
+    border-radius: var(--border-radius);
+  }
+
+  #not-found-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    background-color: var(--light-blue);
+    padding: var(--padding-button);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+  }
+
+  @media (min-width: 800px) {
+    img {
+      max-width: 600px;
+    }
+  }
+</style>

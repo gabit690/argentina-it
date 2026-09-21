@@ -1,8 +1,12 @@
 :root {
   --light-blue: #74acdf;
-  --orange-normal: #febb1b;
+  --orange-dark: #dda100;
+  --orange-intense: #febb1b;
+  --orange-normal: #ffdea6;
   --orange-light: #ffefd7;
   --background: #ffffff;
+  --border-radius: 5px;
+  --padding-button: 5px 10px;
 }
 
 * {
